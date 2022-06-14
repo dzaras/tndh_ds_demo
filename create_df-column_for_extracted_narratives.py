@@ -15,7 +15,7 @@ import pyarrow
 # In[1]:
 
 
-#!pip install pyarrow
+#!pip install pyarrow # not necessary anymore
 
 
 # In[20]:
