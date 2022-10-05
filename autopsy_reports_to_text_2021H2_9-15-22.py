@@ -9,7 +9,7 @@
 
 
 import os
-import re
+import re  # for working with regular expressions
 from pdfminer.high_level import extract_text
 import pandas as pd 
 
