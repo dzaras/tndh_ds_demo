@@ -21,7 +21,7 @@
 
 
 import spacy
-# import scispacy
+# import scispacy # not importing scispacy here due to installation problems
 from spacy import displacy
 from spacy.matcher import PhraseMatcher
 from spacy.tokens import Span
@@ -47,11 +47,11 @@ nlp = spacy.load("en_ner_bc5cdr_md")
 
 # bc5_model = "en_ner_bc5cdr_md"
 
-#Sample clinical note
+# Sample clinical note
 clinical_note="Patient is a 60 year old having difficuly in breathing. Not diabetic. He feels that he has been in good health until this current episode. Appetite - good. No chest pain. No weight loss or episodes of stomach pain. Hypertension absent."
 
 
-# ### Extraction of Negation Entities
+# ### Extraction of Negation Entities 
 
 # In[5]:
 
