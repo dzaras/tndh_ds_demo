@@ -38,7 +38,7 @@ len(file_paths)
 ### import autopsies from specific forensic center
 autopsies = dict()
 for i, file_path in enumerate(file_paths):
-    if i % 1000 == 0:
+    if i % 1000 == 0:                # this is included to show progress
         print(i)
         
     try:
