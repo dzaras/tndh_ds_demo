@@ -164,7 +164,7 @@ for sent in doc.sents:
 # In[16]:
 
 
-#function to identify span objects of matched megative phrases from clinical note
+# function to identify span objects of matched megative phrases from clinical note
 def match(nlp,terms,label):
         patterns = [nlp.make_doc(text) for text in terms]
         matcher = PhraseMatcher(nlp.vocab)
