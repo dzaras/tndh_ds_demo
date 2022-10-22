@@ -28,7 +28,7 @@ import re
 import time
 
 
-# #### Import different datasets for the train and test sets  
+# #### Import different datasets for the train and test sets  instead of splitting the same dataset into a train and test set 
 
 # In[38]:
 
