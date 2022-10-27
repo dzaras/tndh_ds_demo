@@ -48,8 +48,9 @@ class(RC_DIDS$status)
 # RC_DIDS$did <- toString(RC_DIDS$did)
 years_list <- substr(RC_DIDS$did, 1, 4)
 years_list <- as.integer(years_list)
-table(years_list) # 1,653 values of '2022' 
+table(years_list) # 1,789 values of '2022' as of 10/27/22
 table(years_list, RC_DIDS$status) # 1,366 values of 0 for the 'status' variable in 2022 at 10/21/22
+# 1,287 values of 0 for the 'status' variable in 2022 at 10/21/22
 
 ## Import extracted data from local drive
 df <- read_csv('extracted_variables_from_SUDORS_narratives_2022.csv')
@@ -58,7 +59,6 @@ table(df$year)
 
 # forensic center variable
 names(df)[names(df) == 'forensic_center'] <- 'name_of_regional_forensic'
-
 
 df$name_of_regional_forensic <- as.factor(df$name_of_regional_forensic)
 levels(df$name_of_regional_forensic)
@@ -134,17 +134,6 @@ df$current_past_misuse___10[df$hxunspecified == 0]<- 0
 # df$hxothersubstancespecify <- 0
 # df$current_past_misuse[df$hxothersubstancespecify == 1]<- 11 # "current_past_misuse___10"
 
-# 'Circumastances' tab on REDCap
-
-# cme_substanceabuseother
-df$cme_substanceabuseother <- factor(NA, levels = c(1,0))
-
-# cme_alcoholproblem
-df$cme_alcoholproblem___1 <- factor(NA, levels= c(1,0))
-
-df$cme_alcoholproblem___1[df$cme_alcoholproblem == 0] <- 0
-df$cme_alcoholproblem___1[df$cme_alcoholproblem == 1] <- 1
-
 # Create new variable in the df to import the information from the 'Any evidence of drug use' from the word
 # document or 'evddrug' from the pdf codebook or 'indicationsdrugspara' variables - which are all the same
 df$evddrug <- factor(NA, levels = c(1, 2))
@@ -188,15 +177,104 @@ df$smoke_evidence___4 <- factor(NA, levels = c(0,1))
 df$smoke_evidence___4[df$smokingbongbowl == 0]<- 0 
 df$smoke_evidence___4[df$smokingbongbowl == 1]<- 1 
 
-# adding a new column to the df dataframe to check if that fixes the error message when importing to RC
-#df$witnessreport <- 0
+# create evidence of injection variable
+df$evidenceofinjection___1 <- factor(NA, c(0,1))
 
-#df$smoke_evidence___5[df$witnessreport == 1] <- 1
+df$evidenceofinjection___1[df$routeinjection == 1] <- 1
+df$evidenceofinjection___1[df$routeinjection == 0] <- 0
 
-# adding a new column to the df dataframe to check if that fixes the error message when importing to RC
-#df$othersmokeevidence <- 0
+# create injection evidence variable
+df$injection_evidence___1 <- factor(NA,levels = c(0, 1))
 
-#df$smoke_evidence___6[df$othersmokeevidence == 1] <- 1
+df$injection_evidence___1[df$indicationstracks == 0] <- 0
+df$injection_evidence___1[df$indicationstracks == 1]<- 1   # 
+
+df$injection_evidence___2 <- factor(NA, levels= c(0,1))
+
+df$injection_evidence___2[df$hasevidenceofinjectiontourni == 0] <- 0
+df$injection_evidence___2[df$hasevidenceofinjectiontourni == 1]<- 1 
+
+df$injection_evidence___3 <- factor(NA, levels = c(0,1))
+
+df$injection_evidence___3[df$hasevidenceofinjectioncooker == 0]<- 0
+df$injection_evidence___3[df$hasevidenceofinjectioncooker == 1]<- 1
+
+df$injection_evidence___4 <- factor(NA, levels = c(0,1))
+
+df$injection_evidence___4[df$hasevidenceofinjectionneedle == 0]<- 0 
+df$injection_evidence___4[df$hasevidenceofinjectionneedle == 1]<- 1 
+
+# filters is not among the extracted variables we have collected data for  
+
+# evidence of snorting/sniffing variable
+df$snort_sniff___1 <- factor(NA, levels = c(0, 1))
+
+df$snort_sniff___1[df$evidence_of_snorting_sniffing == 1] <- 1
+df$snort_sniff___1[df$evidence_of_snorting_sniffing == 0] <- 0
+
+# snorting/sniffing evidence variable
+#df$snort_sniff_evidence___1 <- factor(NA,levels = c(0, 1))
+
+#df$snort_sniff_evidence___1[df$ == 0] <- 0
+#df$snort_sniff_evidence___1[df$ == 1]<- 1   # 
+
+df$snort_sniff_evidence___5 <- factor(NA, levels= c(0,1))
+
+df$snort_sniff_evidence___5[df$snortingpowdernose == 0] <- 0
+df$snort_sniff_evidence___5[df$snortingpowdernose == 1]<- 1 
+
+#df$injection_evidence___3 <- factor(NA, levels = c(0,1))
+
+#df$injection_evidence___3[df$ == 0]<- 0
+#df$injection_evidence___3[df$ == 1]<- 1
+
+#df$injection_evidence___4 <- factor(NA, levels = c(0,1))
+
+#df$injection_evidence___4[df$ == 0]<- 0 
+#df$injection_evidence___4[df$ == 1]<- 1
+
+# evidence illicit drug  variable
+
+df$evidence_illicit_drug___1 <- factor(NA, c(0,1))
+
+df$evidence_illicit_drug___1[df$illicit_drug_evidence == 0] <- 0
+df$evidence_illicit_drug___1[df$illicit_drug_evidence == 1]<- 1 
+
+# illict drug evidence variables
+
+df$illicit_drugs_evidence___1 <- factor(NA, c(0,1))
+
+df$illicit_drugs_evidence___1[df$hasevidenceofillicitpowder == 1] <- 1
+df$illicit_drugs_evidence___1[df$hasevidenceofillicitpowder == 0] <- 0
+
+df$illicit_drugs_evidence___2 <- factor(NA, c(0,1))
+
+df$illicit_drugs_evidence___2[df$hasevidenceofillicittar == 1] <- 1
+df$illicit_drugs_evidence___2[df$hasevidenceofillicittar == 0] <- 0
+
+df$illicit_drugs_evidence___4 <- factor(NA, c(0,1))
+
+df$illicit_drugs_evidence___4[df$hasevidenceofillicitcrystal == 1] <- 1
+df$illicit_drugs_evidence___4[df$hasevidenceofillicitcrystal == 0] <- 0
+
+df$illicit_drugs_evidence___6 <- factor(NA, c(0,1))
+
+df$illicit_drugs_evidence___6[df$hasevidenceofillicitpackage == 1] <- 1
+df$illicit_drugs_evidence___6[df$hasevidenceofillicitpackage == 0] <- 0
+
+
+
+# 'Circumastances' tab on REDCap
+
+# cme_substanceabuseother
+df$cme_substanceabuseother <- factor(NA, levels = c(1,0))
+
+# cme_alcoholproblem
+df$cme_alcoholproblem___1 <- factor(NA, levels= c(1,0))
+
+df$cme_alcoholproblem___1[df$cme_alcoholproblem == 0] <- 0
+df$cme_alcoholproblem___1[df$cme_alcoholproblem == 1] <- 1
+
 
 ## keep only the "DID" and "current_past_misuse" columns from the imported data to later merge with the 
 ## dataframe that I downloaded from RedCap
