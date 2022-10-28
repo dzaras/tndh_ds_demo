@@ -223,16 +223,6 @@ df$snort_sniff_evidence___5 <- factor(NA, levels= c(0,1))
 df$snort_sniff_evidence___5[df$snortingpowdernose == 0] <- 0
 df$snort_sniff_evidence___5[df$snortingpowdernose == 1]<- 1 
 
-#df$injection_evidence___3 <- factor(NA, levels = c(0,1))
-
-#df$injection_evidence___3[df$ == 0]<- 0
-#df$injection_evidence___3[df$ == 1]<- 1
-
-#df$injection_evidence___4 <- factor(NA, levels = c(0,1))
-
-#df$injection_evidence___4[df$ == 0]<- 0 
-#df$injection_evidence___4[df$ == 1]<- 1
-
 # evidence illicit drug  variable
 
 df$evidence_illicit_drug___1 <- factor(NA, c(0,1))
@@ -262,12 +252,69 @@ df$illicit_drugs_evidence___6 <- factor(NA, c(0,1))
 df$illicit_drugs_evidence___6[df$hasevidenceofillicitpackage == 1] <- 1
 df$illicit_drugs_evidence___6[df$hasevidenceofillicitpackage == 0] <- 0
 
+# create know medical conditions variable
+df$known_medical_conditions___1 <- factor(NA, c(0,1))
 
+df$known_medical_conditions___1[df$medhx_COPD == 0] <- 0
+df$known_medical_conditions___1[df$medhx_COPD == 1]<- 1 
+
+df$known_medical_conditions___2 <- factor(NA, c(0,1))
+
+df$known_medical_conditions___2[df$medhx_asthma == 0] <- 0
+df$known_medical_conditions___2[df$medhx_asthma == 1]<- 1 
+
+df$known_medical_conditions___3 <- factor(NA, c(0,1))
+
+df$known_medical_conditions___3[df$medhx_apnea == 0] <- 0
+df$known_medical_conditions___3[df$medhx_apnea == 1]<- 1 
+
+df$known_medical_conditions___4 <- factor(NA, c(0,1))
+
+df$known_medical_conditions___4[df$medhx_heart == 0] <- 0
+df$known_medical_conditions___4[df$medhx_heart == 1]<- 1 
+
+df$known_medical_conditions___5 <- factor(NA, c(0,1))
+
+df$known_medical_conditions___5[df$medhx_obesity == 0] <- 0
+df$known_medical_conditions___5[df$medhx_obesity == 1]<- 1 
+
+df$known_medical_conditions___7 <- factor(NA, c(0,1))
+
+df$known_medical_conditions___7[df$medhx_migraine == 0] <- 0
+df$known_medical_conditions___7[df$medhx_migraine == 1]<- 1
+
+df$known_medical_conditions___8 <- factor(NA, c(0,1))
+
+df$known_medical_conditions___8[df$medhx_backpain == 0] <- 0
+df$known_medical_conditions___8[df$medhx_backpain == 1]<- 1
+
+df$known_medical_conditions___9 <- factor(NA, c(0,1))
+
+df$known_medical_conditions___9[df$medhx_hepc == 0] <- 0
+df$known_medical_conditions___9[df$medhx_hepc == 1]<- 1
+
+df$known_medical_conditions___10 <- factor(NA, c(0,1))
+
+df$known_medical_conditions___10[df$medhx_hiv == 0] <- 0
+df$known_medical_conditions___10[df$medhx_hiv == 1]<- 1
+
+df$known_medical_conditions___11 <- factor(NA, c(0,1))
+
+df$known_medical_conditions___11[df$medhx_otherpain == 0] <- 0
+df$known_medical_conditions___11[df$medhx_otherpain == 1]<- 1
+
+df$known_medical_conditions___12 <- factor(NA, c(0,1))
+
+df$known_medical_conditions___12[df$medhx_otherbreathing == 0] <- 0
+df$known_medical_conditions___12[df$medhx_otherbreathing == 1]<- 1
 
 # 'Circumastances' tab on REDCap
 
 # cme_substanceabuseother
-df$cme_substanceabuseother <- factor(NA, levels = c(1,0))
+df$cme_substanceabuseother___1 <- factor(NA, levels = c(1,0))
+
+df$cme_substanceabuseother___1[df$cme_substanceabuseother == 0] <- 0
+df$cme_substanceabuseother___1[df$cme_substanceabuseother == 1] <- 1
 
 # cme_alcoholproblem
 df$cme_alcoholproblem___1 <- factor(NA, levels= c(1,0))
@@ -275,6 +322,29 @@ df$cme_alcoholproblem___1 <- factor(NA, levels= c(1,0))
 df$cme_alcoholproblem___1[df$cme_alcoholproblem == 0] <- 0
 df$cme_alcoholproblem___1[df$cme_alcoholproblem == 1] <- 1
 
+# Cme_mentalhealthproblem
+df$cme_mentalhealthproblem___1 <- factor(NA, levels= c(1,0))
+
+df$cme_mentalhealthproblem___1[df$cme_mentalhealthproblem == 0] <- 0
+df$cme_mentalhealthproblem___1[df$cme_mentalhealthproblem == 1] <- 1
+
+# cme_traumatic brain injury - tbi
+df$cme_tbi___1 <- factor(NA, c(0,1))
+
+df$cme_tbi___1[df$cme_istraumaticbraininjuryhist == 0] <- 0
+df$cme_tbi___1[df$cme_istraumaticbraininjuryhist == 1] <- 1
+
+# Cme_suicide attemp thistory
+df$cme_suicideattempthistory___1 <- factor(NA, c(0,1))
+
+df$cme_suicideattempthistory___1[df$cme_suicideattempthistory == 0] <- 0
+df$cme_suicideattempthistory___1[df$cme_suicideattempthistory == 1] <- 1
+
+# cme_suicide thought history
+df$cme_suicidethoughthistory___1 <- factor(NA, c(0,1))
+
+df$cme_suicidethoughthistory___1[df$cme_suicidethoughthistory == 0] <- 0
+df$cme_suicidethoughthistory___1[df$cme_suicidethoughthistory == 1] <- 1
 
 ## keep only the "DID" and "current_past_misuse" columns from the imported data to later merge with the 
 ## dataframe that I downloaded from RedCap
@@ -283,9 +353,20 @@ drop <- c("DID", "name_of_regional_forensic",
           "current_past_misuse___1", "current_past_misuse___2","current_past_misuse___3", "current_past_misuse___4",
           "current_past_misuse___5", "current_past_misuse___6","current_past_misuse___7","current_past_misuse___8",
           "current_past_misuse___9","current_past_misuse___10", 
-          "smoke___1" , "smoke_evidence___1", "smoke_evidence___2", "smoke_evidence___3",
-          "smoke_evidence___4",
-          "cme_alcoholproblem___1")
+          "smoke___1","smoke_evidence___1", "smoke_evidence___2", "smoke_evidence___3","smoke_evidence___4",
+          "evidenceofinjection___1", "injection_evidence___1","injection_evidence___2","injection_evidence___3", 
+          "injection_evidence___1",
+          "snort_sniff___1","snort_sniff_evidence___5","evidence_illicit_drug___1","evidence_illicit_drug___1",
+          "illicit_drugs_evidence___1","illicit_drugs_evidence___2","illicit_drugs_evidence___4",
+          "illicit_drugs_evidence___6",
+          "known_medical_conditions___1","known_medical_conditions___2","known_medical_conditions___3",
+          "known_medical_conditions___4","known_medical_conditions___5",
+          "known_medical_conditions___7","known_medical_conditions___8","known_medical_conditions___9",
+          "known_medical_conditions___10","known_medical_conditions___11","known_medical_conditions___12",
+          "cme_substanceabuseother___1","cme_alcoholproblem___1","cme_mentalhealthproblem___1",
+          "cme_tbi___1", "cme_suicideattempthistory___1","cme_suicidethoughthistory___1"
+          )
+
 df2 = df[,(names(df) %in% drop)]
 
 
@@ -312,7 +393,7 @@ dim(df_for_rc)
 # first try to upload the current_past_misuse information for autopsies that haven't been abstracted
 df_for_rc_b <- df_for_rc[df_for_rc$status == 0,]
 
-df_for_rc_c <- df_for_rc_b[0:20,]
+df_for_rc_c <- df_for_rc_b[0:40,]
 # DIDs: 2022001797, 2022001434, 2022001793, 2022001802, 2022001844, 2022001865, 2022002026
 #keep <-  c("2022001797", "2022001434", "2022001793", "2022001802", "2022001844", "2022001865", "2022002026")
 
