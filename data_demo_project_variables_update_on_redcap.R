@@ -401,9 +401,6 @@ df_for_rc_c <- df_for_rc_b[0:40,]
 #df_for_rc2$did  # print the did's which are not abstracted and for which we have data on current_past_misuse
 # "2022001793" "2022001797" "2022001802" "2022001844" "2022001865" "2022002026"
 
-#df_for_rc2$did <- "2022001292"
-#df_for_rc2$smoke___1 <- 1
-
 #print(df_for_rc2)
 
 #df_for_rc2 <- df_for_rc2[1,]
