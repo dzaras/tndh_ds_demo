@@ -44,7 +44,7 @@ class(RC_DIDS$did)
 #sort(RC_DIDS$did)
 
 # RC_DIDS$did <- toString(RC_DIDS$did)
-years_list <- substr(RC_DIDS$did, 1, 4)
+years_list <- substr(RC_DIDS$did, 1, 4) # first 4 digits of DID show the year
 years_list <- as.integer(years_list)
 table(years_list) # 3,954 values of '2021' 
 
