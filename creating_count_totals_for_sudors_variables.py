@@ -80,7 +80,7 @@ print(narr_df_totals)
 narr_df_totals.to_csv("narr_df_bigrams_totals.csv")
 
 
-# ## for the unigrams counts dataframe
+# ## for the unigram counts data frame
 
 # In[3]:
 
