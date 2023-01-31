@@ -12,7 +12,7 @@ import os
 import re
 from collections import Counter
 
-os.chdir("C:/Users/DC20B46/Documents")
+# os.chdir("C:/Users/DC20B46/Documents")
 
 
 # In[2]:
