@@ -1,0 +1,16 @@
+name: null
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - tensorflow=2.10
+  - python=3.10
+  - matplotlib=3.6
+  - conda-forge::jupyterlab=3.5
+  - keras=2.10
+  - scikit-learn=1.2
+  - scikit-learn-intelex=2021.4
+  - dask=2023.1
+  - ipykernel=6.21
+  - ipython=8.9
+prefix: C:\Users\dima\Desktop\tndh_ds_demo\env
